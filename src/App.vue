@@ -6,13 +6,20 @@
       <section>
         <ul class="list">
           <li class="item">
-            <input id="toggle" type="checkbox" style="display: none">
-            <label for="toggle"></label>
-            <label for="todo">吃饭</label>
-            <input type="text" id="todo">
+            <el-checkbox v-model="completed" @change="xxx"></el-checkbox>
+            <label>吃饭</label>
+            <input type="text" class="todo-item">
           </li>
-          <li class="item">hahah</li>
-          <li class="item">hahah</li>
+          <li class="item">
+            <el-checkbox v-model="completed" @change="xxx"></el-checkbox>
+            <label>吃饭</label>
+            <input type="text" class="todo-item">
+          </li>
+          <li class="item">
+            <el-checkbox v-model="completed" @change="xxx"></el-checkbox>
+            <label>吃饭</label>
+            <input type="text" class="todo-item">
+          </li>
         </ul>
       </section>
     </div>
@@ -24,14 +31,24 @@
 
 export default {
   name: 'app',
+  data(){
+    return {
+      completed: false
+    }
+  },
   components: {
 
+  },
+  methods: {
+    xxx(){
+      console.log('xxx')
+    }
   }
 }
 </script>
 
 <style lang="scss">
-  @import './assets/css/common.scss';
+
   $border-color: #ddd;
   $checked-bg: #eee;
   #app {
@@ -50,14 +67,15 @@ export default {
       font-weight: 800;
       font-size: 24px;
       padding-left: 16px;
+      padding-top: 4px;
     }
     input{
       &.todo{
-        height: 32px;
+        height: 40px;
         width: 400px;
         border: none;
         outline: none;
-        padding: 0px 16px 0 16px;
+        padding: 8px 16px 0 16px;
         border-bottom: 1px solid $border-color;
         &::placeholder {
           color: #ccc;
@@ -73,24 +91,10 @@ export default {
           line-height: 44px;
           border-top: 1px solid $border-color;
           padding: 0 16px;
-          #toggle + label{
-            background-color: white;
-            border-radius: 4px;
-            border:1px solid #d3d3d3;
-            width:20px;
-            height:20px;
-            display: inline-block;
-            text-align: center;
-            vertical-align: middle;
-            line-height: 20px;
-            margin-top: -2px;
-          }
-          #toggle:checked + label{
-            background-color: #fff;
-          }
-          #toggle:checked + label:after{
-            content:"\2714";
-            color: #999;
+          .el-checkbox + label {
+            position: absolute;
+            padding: 0 10px;
+            width: 320px;
           }
           input[type="text"] {
             height: 42px;
