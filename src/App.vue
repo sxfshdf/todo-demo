@@ -193,7 +193,7 @@ export default {
           width: calc( 100% - 96px );
           position: absolute;
           font-size: 14px;
-          padding: 0 10px;
+          font-size: inherit;
           &.editing {
             display: block;
           }
